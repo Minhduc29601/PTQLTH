@@ -15,5 +15,6 @@
 			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/student/list">Danh sách sinh viên</a>
 		</c:if>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Danh sách môn học</a>
+		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/faculty/list">Danh sách khoa</a>
 	</div>
 </div>
