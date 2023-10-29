@@ -22,8 +22,8 @@ public class Role extends BaseEntity implements GrantedAuthority {
 	@Column(name = "description", length = 45, nullable = false)
 	private String description;
 
-	@ManyToMany(cascade = CascadeType.REMOVE,
-				fetch = FetchType.LAZY,
+	@ManyToMany(cascade = CascadeType.ALL,
+				fetch = FetchType.EAGER,
 				mappedBy = "roles")
 	private Set<User> users = new HashSet<User>();
 	public void addUsers(User user) {

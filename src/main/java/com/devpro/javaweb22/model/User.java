@@ -32,7 +32,7 @@ public class User extends BaseEntity implements UserDetails {
 	@Column(name = "que_quan", length = 100, nullable = true)
 	private String que_quan;
 
-	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "tbl_users_roles",
 			   joinColumns = @JoinColumn(name = "user_id"),
 			   inverseJoinColumns = @JoinColumn(name = "role_id"))
