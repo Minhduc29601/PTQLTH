@@ -1,4 +1,4 @@
-target
-.idea
-.jpb
+target/
+.idea/
+.jpb/
 application.properties
