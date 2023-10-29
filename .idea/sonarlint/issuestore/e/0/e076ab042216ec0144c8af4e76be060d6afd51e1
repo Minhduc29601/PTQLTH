@@ -1,0 +1,30 @@
+
+g	java:S112<"FDefine and throw a dedicated exception instead of using a generic one.(òêÕ¯ûÿÿÿÿ8±”ç±·1
+[
+java:S2387 "9"roleService" is the name of a field in "BaseController".(ºÆ×·øÿÿÿÿ8ˆÕ×±·1
+‰
+java:S1130#"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ç“ëë8ŠÕ×±·1
+j
+java:S4488!"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(îÒ‰şÿÿÿÿÿ8‹Õ×±·1
+‰
+java:S1130/"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ç“ëë8Õ×±·1
+j
+java:S4488,"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ù³÷şşÿÿÿÿ8Õ×±·1
+b
+java:S4684<"@Replace this persistent entity with a simple POJO or DTO object.(òêÕ¯ûÿÿÿÿ8Õ×±·1
+
+java:S1130<"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(òêÕ¯ûÿÿÿÿ8Ù”ç±·1
+l
+java:S44888"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ºˆùÚøÿÿÿÿ8Õ×±·1
+_
+java:S1128"BRemove this unused import 'com.devpro.javaweb22.model.BaseEntity'.(‚Ò¦¥8İ”ç±·1
+s
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8İ”ç±·1
+n
+java:S1128"LRemove this unused import 'org.springframework.web.multipart.MultipartFile'.(ôŸœÿÿÿÿÿ8İ”ç±·1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8İ”ç±·1
+J
+java:S1128".Remove this unused import 'java.util.HashSet'.(Ê‚êX8İ”ç±·1
+L
+java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8İ”ç±·1

@@ -1,0 +1,14 @@
+
+c
+java:S1192"FDefine a constant instead of duplicating this literal "ADMIN" 4 times.(şµˆÿ8¨”¶·1
+Q	java:S125*"<This block of commented-out lines of code should be removed.(ÍÃßÀ
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(Ñüæûıÿÿÿÿ
+Q
+java:S6437:"6Revoke and change this password, as it is compromised.(Ñüæûıÿÿÿÿ
+7
+java:S1116:"Remove this empty statement.(Ñüæûıÿÿÿÿ
+S	java:S106;"9Replace this use of System.out or System.err by a logger.(Ë£Ş¥üÿÿÿÿ
+Q
+java:S6437;"6Revoke and change this password, as it is compromised.(Ë£Ş¥üÿÿÿÿ
+7
+java:S1116;"Remove this empty statement.(Ë£Ş¥üÿÿÿÿ
