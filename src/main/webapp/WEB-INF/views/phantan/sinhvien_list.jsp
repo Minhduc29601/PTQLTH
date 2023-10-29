@@ -96,7 +96,7 @@
                             <td width="15%">
                                 <div>
                                     <a class="btn btn-primary" href="${base }/admin/student/management/${student.id}" role="button">Sửa</a>
-<%--                                    <a class="btn btn-danger" role="button" onclick="DeleteProduct(${student.id});">Xóa</a>--%>
+                                    <a class="btn btn-danger" href="${base }/admin/student/delete/${student.id}" role="button" >Xóa</a>
                                 </div>
                             </td>
                         </tr>

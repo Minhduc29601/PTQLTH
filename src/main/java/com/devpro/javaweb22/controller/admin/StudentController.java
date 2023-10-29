@@ -33,7 +33,7 @@ public class StudentController extends BaseController {
     @RequestMapping(value = { "/admin/student/list" }, method = RequestMethod.GET)
     public String adminProductList(final Model model, final HttpServletRequest request,
                                    final HttpServletResponse response) throws IOException {
-        List<User> students = userService.getEntitiesByNativeSQL("select * from tbl_users where dtype = 'sinh_vien'");
+        List<User> students = userService.getEntitiesByNativeSQL("select * from tbl_users where dtype = 'sinh_vien' and status = 1");
 
         model.addAttribute("students", students);
 
@@ -96,6 +96,31 @@ public class StudentController extends BaseController {
 
         studentService.saveOrUpdate(existStudent);
         // trở về trang danh sách sản phẩm
-        return "redirect:/admin/lecturer/list";
+        return "redirect:/admin/student/list";
+    }
+
+    @RequestMapping(value = { "/admin/student/delete/{id}" }, method = RequestMethod.GET)
+    public String adminStudentDeleteGET(final Model model,
+                                         final HttpServletRequest request,
+                                         final HttpServletResponse response,
+                                         @PathVariable("id") int id) throws Exception {
+        SinhVien user = studentService.getById(id);
+        model.addAttribute("student", user);
+        // trở về trang danh sách sản phẩm
+        return "phantan/sinhvien_delete";
+    }
+
+    @RequestMapping(value = { "/admin/student/delete/{id}" }, method = RequestMethod.POST)
+    public String adminLecturerDelete(final Model model,
+                                      final HttpServletRequest request,
+                                      final HttpServletResponse response,
+                                      @PathVariable("id") int id) throws Exception {
+        SinhVien existLecturer = studentService.getEntityByNativeSQL("select * from tbl_users where id = " + id);
+
+        existLecturer.setStatus(false);
+        studentService.saveOrUpdate(existLecturer);
+
+        // trở về trang danh sách sản phẩm
+        return "redirect:/admin/student/list";
     }
 }

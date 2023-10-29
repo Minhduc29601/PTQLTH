@@ -63,8 +63,8 @@
       <div class="input-form">
         <sf:input type="text" path="que_quan" id="que_quan" class="form-control" placeholder="Quê quán"></sf:input>
       </div>
-      <a href="/admin/user/list" class="btn btn-secondary active" role="button" aria-pressed="true">Back to list</a>
-      <button type="submit" class="btn btn-primary">Save User</button>
+      <a href="/admin/student/list" class="btn btn-secondary active" role="button" aria-pressed="true">Back to list</a>
+      <button type="submit" class="btn btn-primary">Lưu sinh viên</button>
       </sf:form>
 
       </p>

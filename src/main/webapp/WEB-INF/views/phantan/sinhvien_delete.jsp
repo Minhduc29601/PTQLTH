@@ -42,9 +42,9 @@
         <!-- Page content-->
         <div class="container-fluid">
 
-            <h1 class="mt-4">Add/Update Lecturer</h1>
+            <h1 class="mt-4">Bạn có muốn xóa sinh viên này không?</h1>
             <p>
-                <sf:form modelAttribute="student" action="${base}/admin/student/update" method="post" enctype="multipart/form-data">
+                <sf:form modelAttribute="student" action="${base}/admin/student/delete/${student.id}" method="post" enctype="multipart/form-data">
             <div class="form-group mb-2">
                 <label for="id">Lecturer Id</label>
                 <sf:input path="id" id="id" class="form-control" readonly="true"></sf:input>
@@ -57,22 +57,22 @@
                 <sf:input type="password" path="password" id="password" class="form-control" placeholder="Password" readonly="true"></sf:input>
             </div>
             <div class="input-form">
-                <sf:input type="text" path="ho_ten" id="ho_ten" class="form-control" placeholder="Họ và tên"></sf:input>
+                <sf:input type="text" path="ho_ten" id="ho_ten" class="form-control" placeholder="Họ và tên" readonly="true"></sf:input>
             </div>
             <div class="input-form">
-                <sf:input type="text" path="nam_sinh" id="nam_sinh" class="form-control" placeholder="Năm sinh"></sf:input>
+                <sf:input type="text" path="nam_sinh" id="nam_sinh" class="form-control" placeholder="Năm sinh" readonly="true"></sf:input>
             </div>
             <div class="input-form">
-                <sf:input type="text" path="que_quan" id="que_quan" class="form-control" placeholder="Quê quán"></sf:input>
+                <sf:input type="text" path="que_quan" id="que_quan" class="form-control" placeholder="Quê quán" readonly="true"></sf:input>
             </div>
             <div class="input-form">
-                <sf:input type="text" path="masv" id="masv" class="form-control" placeholder="Mã giảng viên" readonly="true"></sf:input>
+                <sf:input type="text" path="masv" id="masv" class="form-control" placeholder="Mã giảng viên" readonly="true" ></sf:input>
             </div>
             <div class="input-form">
                 <sf:label type="text" path="roles[0].name" id="roles" class="form-control" placeholder="Role" readonly="true"></sf:label>
             </div>
-            <a href="/admin/student/list" class="btn btn-secondary active" role="button" aria-pressed="true">Back to list</a>
-            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a href="/admin/student/list" class="btn btn-secondary active" role="button" aria-pressed="true">Hủy</a>
+            <button type="submit" class="btn btn-primary">Xóa</button>
             </sf:form>
 
             </p>
