@@ -62,9 +62,9 @@
                         <th scope="col">#</th>
                         <th scope="col">Mã sinh viên</th>
                         <th scope="col">Họ và tên</th>
-                        <th scope="col">Khoa</th>
                         <th scope="col">Năm sinh</th>
                         <th scope="col">Quê quán</th>
+                        <th scope="col">Khoa</th>
                         <th scope="col">Khu vực</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -88,10 +88,10 @@
                                     ${student.que_quan }
                             </td>
                             <td>
-                                    ${student.khoa_id }
+                                    ${student.khoa.ten_khoa }
                             </td>
                             <td>
-                                    ${student.khu_vuc_id}
+                                    ${student.khuVuc.ten_khu_vuc }
                             </td>
                             <td width="15%">
                                 <div>

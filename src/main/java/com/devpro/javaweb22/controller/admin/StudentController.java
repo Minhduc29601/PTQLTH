@@ -93,6 +93,8 @@ public class StudentController extends BaseController {
         existStudent.setHo_ten(student.getHo_ten());
         existStudent.setQue_quan(student.getQue_quan());
         existStudent.setNam_sinh(student.getNam_sinh());
+        existStudent.setLocations(student.getLocations());
+        existStudent.setFaculties(student.getFaculties());
 
         studentService.saveOrUpdate(existStudent);
         // trở về trang danh sách sản phẩm
