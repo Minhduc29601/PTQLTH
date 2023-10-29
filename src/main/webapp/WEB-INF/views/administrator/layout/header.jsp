@@ -9,10 +9,13 @@
 	<div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
 	<div class="list-group list-group-flush">
 		<c:if test="${userLogined.roles[0].name == 'ADMIN'}">
-		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/lecturer/list">Danh sách giảng viên</a>
+			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/lecturer/list">Danh sách giảng viên</a>
 		</c:if>
 		<c:if test="${userLogined.roles[0].name == 'ADMIN' || userLogined.roles[0].name == 'LECTURER' }">
 			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/student/list">Danh sách sinh viên</a>
+		</c:if>
+		<c:if test="${userLogined.roles[0].name == 'ADMIN'}">
+			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/location/list">Danh sách khu vực</a>
 		</c:if>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Danh sách môn học</a>
 		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/faculty/list">Danh sách khoa</a>

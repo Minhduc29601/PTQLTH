@@ -44,60 +44,28 @@
         <!-- Page content-->
         <div class="container-fluid">
 
-            <form action="${base }/admin/lecturer/list" method="get">
-
-                <!-- tìm kiếm sản phẩm trên danh sách -->
-                <div class="d-flex flex-row justify-content-between mt-4">
-                    <div>
-                        <a class="btn btn-outline-primary mb-1" href="${base }/admin/lecturer/management/" role="button">
-                            Thêm giảng viên
-                        </a>
-                    </div>
-                </div>
+            <form action="${base }/admin/location/list" method="get">
 
                 <!-- danh sách sản phẩm -->
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Mã giảng viên</th>
-                        <th scope="col">Họ và tên</th>
-                        <th scope="col">Năm sinh</th>
-                        <th scope="col">Quê quán</th>
-                        <th scope="col">Khoa</th>
-                        <th scope="col">Khu vực</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Mã khu vực</th>
+                        <th scope="col">Tên khu vực</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${lecturers}" var="lecturer" varStatus="loop">
+                    <c:forEach items="${locations}" var="location" varStatus="loop">
                         <tr>
                             <th scope="row" width="5%">
                                     ${loop.index + 1}
                             </th>
                             <td>
-                                    ${lecturer.magv }
+                                    ${location.ma_khu_vuc }
                             </td>
                             <td>
-                                    ${lecturer.ho_ten }
-                            </td>
-                            <td>
-                                    ${lecturer.nam_sinh }
-                            </td>
-                            <td>
-                                    ${lecturer.que_quan }
-                            </td>
-                            <td>
-                                    ${lecturer.khoa.ten_khoa }
-                            </td>
-                            <td>
-                                    ${lecturer.khuVuc.ten_khu_vuc }
-                            </td>
-                            <td width="15%">
-                                <div>
-                                    <a class="btn btn-primary" href="${base }/admin/lecturer/management/${lecturer.id}" role="button">Sửa</a>
-                                    <a class="btn btn-danger" href="${base }/admin/lecturer/delete/${lecturer.id}" role="button" >Xóa</a>
-                                </div>
+                                    ${location.ten_khu_vuc }
                             </td>
                         </tr>
                     </c:forEach>

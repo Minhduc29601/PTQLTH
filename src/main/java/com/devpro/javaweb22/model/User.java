@@ -32,6 +32,14 @@ public class User extends BaseEntity implements UserDetails {
 	@Column(name = "que_quan", length = 100, nullable = true)
 	private String que_quan;
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "khu_vuc_id")
+	private KhuVuc khuVuc;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "khoa_id")
+	private Khoa khoa;
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "tbl_users_roles",
 			   joinColumns = @JoinColumn(name = "user_id"),
@@ -47,6 +55,22 @@ public class User extends BaseEntity implements UserDetails {
 	}
 	public int getRoleInString(String s){
 		return Integer.parseInt(s);
+	}
+
+	public KhuVuc getLocations() {
+		return khuVuc;
+	}
+
+	public Khoa getFaculties() {
+		return khoa;
+	}
+
+	public void setLocations(KhuVuc khuVuc) {
+		this.khuVuc = khuVuc;
+	}
+
+	public void setFaculties(Khoa khoa) {
+		this.khoa = khoa;
 	}
 
 	@Override

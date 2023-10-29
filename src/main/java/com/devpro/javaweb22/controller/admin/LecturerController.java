@@ -94,6 +94,8 @@ public class LecturerController extends BaseController {
         existLecturer.setHo_ten(lecturer.getHo_ten());
         existLecturer.setQue_quan(lecturer.getQue_quan());
         existLecturer.setNam_sinh(lecturer.getNam_sinh());
+        existLecturer.setLocations(lecturer.getLocations());
+        existLecturer.setFaculties((lecturer.getFaculties()));
 
         lecturerService.saveOrUpdate(existLecturer);
         // trở về trang danh sách sản phẩm

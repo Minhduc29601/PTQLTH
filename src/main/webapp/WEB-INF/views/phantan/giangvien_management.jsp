@@ -42,7 +42,7 @@
     <!-- Page content-->
     <div class="container-fluid">
 
-      <h1 class="mt-4">Add/Update Lecturer</h1>
+      <h1 class="mt-4">Thêm giảng viên</h1>
       <p>
         <sf:form modelAttribute="lecturer" action="${base}/admin/lecturer/management" method="post" enctype="multipart/form-data">
           <c:if test="${lecturer.id != null}">
@@ -66,6 +66,18 @@
       </div>
       <div class="input-form">
         <sf:input type="text" path="que_quan" id="que_quan" class="form-control" placeholder="Quê quán"></sf:input>
+      </div>
+      <div class="form-group mb-2">
+        <label for="khuvuc">Category (required)</label>
+        <sf:select path="locations.id" class="form-control" id="khuvuc">
+          <sf:options items="${locations }" itemValue="id" itemLabel="ten_khu_vuc" />
+        </sf:select>
+      </div>
+      <div class="form-group mb-2">
+        <label for="khoa">Category (required)</label>
+        <sf:select path="faculties.id" class="form-control" id="khoa">
+          <sf:options items="${faculties }" itemValue="id" itemLabel="ten_khoa" />
+        </sf:select>
       </div>
       <div class="input-form">
         <sf:input type="text" path="magv" id="magv" class="form-control" placeholder="Mã giảng viên"></sf:input>
