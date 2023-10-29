@@ -51,15 +51,11 @@
         <!-- Page content-->
         <div class="container-fluid">
 
-            <form action="${base }/admin/lecturer/list" method="get">
+            <form action="${base }/admin/faculty/list" method="get">
 
                 <!-- tìm kiếm sản phẩm trên danh sách -->
                 <div class="d-flex flex-row justify-content-between mt-4">
-                    <div>
-                        <a class="btn btn-outline-primary mb-1" href="${base }/admin/lecturer/management/" role="button">
-                            Thêm giảng viên
-                        </a>
-                    </div>
+
                 </div>
 
                 <!-- danh sách sản phẩm -->
