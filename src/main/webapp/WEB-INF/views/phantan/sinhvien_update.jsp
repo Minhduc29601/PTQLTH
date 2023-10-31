@@ -42,7 +42,7 @@
         <!-- Page content-->
         <div class="container-fluid">
 
-            <h1 class="mt-4">Add/Update Lecturer</h1>
+            <h1 class="mt-4">Sửa sinh viên</h1>
             <p>
                 <sf:form modelAttribute="student" action="${base}/admin/student/update" method="post" enctype="multipart/form-data">
             <div class="form-group mb-2">

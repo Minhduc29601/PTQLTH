@@ -42,9 +42,14 @@
     <!-- Page content-->
     <div class="container-fluid">
 
-      <h1 class="mt-4">Add/Upadte User</h1>
+      <h1 class="mt-4">Thêm sinh viên</h1>
       <p>
         <sf:form modelAttribute="student" action="${base}/admin/student/management" method="post" enctype="multipart/form-data">
+          <c:if test="${error}">
+            <div class="alert alert-danger" role="alert">
+              Username hoặc mã sinh viên đã tồn tại hoặc username không được phép là "admin"
+            </div>
+          </c:if>
       <div class="input-form">
         <sf:input type="text" path="username" id="username" class="form-control" placeholder="Username"></sf:input>
       </div>
