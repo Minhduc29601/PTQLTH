@@ -59,6 +59,15 @@ public class LecturerController extends BaseController {
                                    final HttpServletResponse response,
                                    @ModelAttribute("lecturer") GiangVien lecturer) throws Exception {
 
+        GiangVien existCodeLecturer = lecturerService.getEntityByNativeSQL("select * from tbl_users where magv = '" + lecturer.getMagv() + "' and status = 1");
+        GiangVien existUsernameLecturer = lecturerService.getEntityByNativeSQL("select * from tbl_users where username = '" + lecturer.getUsername() + "' and status = 1");
+        if (existCodeLecturer != null || existUsernameLecturer != null) {
+            model.addAttribute("lecturer", lecturer); // đẩy data xuống view
+            model.addAttribute("error", true); // đẩy data xuống view
+            // trả về view
+            return "phantan/giangvien_management";
+        }
+
         Role role = roleService.getById(3);
         lecturer.addRoles(role);
         lecturer.setPassword(new BCryptPasswordEncoder(4).encode(lecturer.getPassword()));
