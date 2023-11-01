@@ -46,14 +46,15 @@
 
             <form action="${base }/admin/student/list" method="get">
 
-                <!-- tìm kiếm sản phẩm trên danh sách -->
-                <div class="d-flex flex-row justify-content-between mt-4">
-                    <div>
-                        <a class="btn btn-outline-primary mb-1" href="${base }/admin/student/management/" role="button">
-                            Thêm sinh viên
-                        </a>
+                <c:if test="${userLogined.roles[0].name == 'ADMIN'}">
+                    <div class="d-flex flex-row justify-content-between mt-4">
+                        <div>
+                            <a class="btn btn-outline-primary mb-1" href="${base }/admin/student/management/" role="button">
+                                Thêm sinh viên
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </c:if>
 
                 <!-- danh sách sản phẩm -->
                 <table class="table table-striped">
@@ -66,7 +67,9 @@
                         <th scope="col">Quê quán</th>
                         <th scope="col">Khoa</th>
                         <th scope="col">Khu vực</th>
-                        <th scope="col">Action</th>
+                        <c:if test="${userLogined.roles[0].name == 'ADMIN'}">
+                            <th scope="col">Action</th>
+                        </c:if>
                     </tr>
                     </thead>
                     <tbody>
@@ -93,12 +96,14 @@
                             <td>
                                     ${student.khuVuc.ten_khu_vuc }
                             </td>
-                            <td width="15%">
-                                <div>
-                                    <a class="btn btn-primary" href="${base }/admin/student/management/${student.id}" role="button">Sửa</a>
-                                    <a class="btn btn-danger" href="${base }/admin/student/delete/${student.id}" role="button" >Xóa</a>
-                                </div>
-                            </td>
+                            <c:if test="${userLogined.roles[0].name == 'ADMIN'}">
+                                <td width="15%">
+                                    <div>
+                                        <a class="btn btn-primary" href="${base }/admin/student/management/${student.id}" role="button">Sửa</a>
+                                        <a class="btn btn-danger" href="${base }/admin/student/delete/${student.id}" role="button" >Xóa</a>
+                                    </div>
+                                </td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                     </tbody>

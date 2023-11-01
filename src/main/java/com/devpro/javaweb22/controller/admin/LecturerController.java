@@ -1,6 +1,7 @@
 package com.devpro.javaweb22.controller.admin;
 
 import com.devpro.javaweb22.controller.BaseController;
+import com.devpro.javaweb22.model.Diem;
 import com.devpro.javaweb22.model.GiangVien;
 import com.devpro.javaweb22.model.Role;
 import com.devpro.javaweb22.model.User;
@@ -38,6 +39,16 @@ public class LecturerController extends BaseController {
         model.addAttribute("lecturers", lecturers);
 
         return "phantan/giangvien_list";
+
+    }
+
+    @RequestMapping(value = { "/admin/lecturer/info" }, method = RequestMethod.GET)
+    public String adminStudentDetailInfo(final Model model,
+                                         final HttpServletRequest request,
+                                         final HttpServletResponse response
+    ) throws IOException {
+
+        return "phantan/giangvien_info";
 
     }
 
