@@ -79,6 +79,7 @@
                 </div>
             </div>
             <h3> Bảng điểm </h3>
+            <a href="${base }/admin/score/export">Export excel</a>
                 <!-- danh sách sản phẩm -->
                 <table class="table table-striped ">
                     <thead>

@@ -6,6 +6,8 @@ import com.devpro.javaweb22.services.ScoreService;
 import com.devpro.javaweb22.services.StudentService;
 import com.devpro.javaweb22.services.SubjectService;
 import com.devpro.javaweb22.services.UserService;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -82,6 +85,58 @@ public class ScoreController extends BaseController {
 
         // trở về trang danh sách sản phẩm
         return "redirect:/admin/student/info";
+    }
+
+    @RequestMapping(value = { "/admin/score/export" }, method = RequestMethod.GET)
+    public void exportDiem(final Model model,
+                                   final HttpServletRequest request,
+                                   final HttpServletResponse response) throws Exception {
+
+        List<Diem> scores = new ArrayList<Diem>();
+        scores = this.scoreService.getEntitiesByNativeSQL("select * from diem where sinh_vien_id = " + getUserLogined().getId());
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=diem_" + System.currentTimeMillis() + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        String[] HEADERs = { "Mã môn học", "Tên môn học", "Điểm" };
+
+        try {
+            // Tạo workbook và sheet
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Scores");
+
+            // CSS header
+            CellStyle headerStyle = workbook.createCellStyle();
+            headerStyle.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+            headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+
+            // Tạo header
+            Row headerRow = sheet.createRow(0);
+            for (int col = 0; col < HEADERs.length; col++) {
+                Cell cell = headerRow.createCell(col);
+                cell.setCellValue(HEADERs[col]);
+                cell.setCellStyle(headerStyle);
+            }
+
+            // Input data
+            int rowIdx = 1;
+                for (Diem d : scores) {
+                    Row row = sheet.createRow(rowIdx);
+                    row.createCell(0).setCellValue(d.getMonHoc().getMa_mon_hoc());
+                    row.createCell(1).setCellValue(d.getMonHoc().getTen_mon_hoc());
+                    row.createCell(2).setCellValue(d.getDiem_so());
+                    rowIdx++;
+                }
+
+            ServletOutputStream outputStream = response.getOutputStream();
+            workbook.write(outputStream);
+            workbook.close();
+
+            outputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException("Fail to export excel file: " + e.getMessage());
+        }
     }
 
 //    @RequestMapping(value = { "/admin/subject/register" }, method = RequestMethod.GET)

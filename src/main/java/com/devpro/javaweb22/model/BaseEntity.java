@@ -1,5 +1,9 @@
 package com.devpro.javaweb22.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -28,6 +32,7 @@ public abstract class BaseEntity {
 	@Column(name = "created_date", nullable = true)
 	private Date createdDate;
 
+	@UpdateTimestamp()
 	@Column(name = "updated_date", nullable = true)
 	private Date updatedDate;
 
