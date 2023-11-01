@@ -58,8 +58,8 @@ public class StudentController extends BaseController {
                                           final HttpServletRequest request,
                                           final HttpServletResponse response,
                                           @ModelAttribute("student") SinhVien student) throws Exception {
-        SinhVien existCodeStudent = studentService.getEntityByNativeSQL("select * from tbl_users where masv = '" + student.getMasv() + "' and status = 1");
-        SinhVien existUsernameStudent = studentService.getEntityByNativeSQL("select * from tbl_users where username = '" + student.getUsername() + "' and status = 1");
+        SinhVien existCodeStudent = studentService.getEntityByNativeSQL("select * from tbl_users where masv = '" + student.getMasv() + "'");
+        SinhVien existUsernameStudent = studentService.getEntityByNativeSQL("select * from tbl_users where username = '" + student.getUsername() + "'");
         if (existCodeStudent != null || existUsernameStudent != null || student.getUsername().trim().equalsIgnoreCase("admin")) {
             model.addAttribute("student", student); // đẩy data xuống view
             model.addAttribute("error", true); // đẩy data xuống view
