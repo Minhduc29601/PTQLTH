@@ -3,13 +3,11 @@ package com.devpro.javaweb22.controller;
 import java.util.List;
 
 
-import com.devpro.javaweb22.model.Khoa;
-import com.devpro.javaweb22.model.KhuVuc;
-import com.devpro.javaweb22.model.Role;
-import com.devpro.javaweb22.model.User;
+import com.devpro.javaweb22.model.*;
 import com.devpro.javaweb22.services.FacultyService;
 import com.devpro.javaweb22.services.LocationService;
 import com.devpro.javaweb22.services.RoleService;
+import com.devpro.javaweb22.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -28,7 +26,8 @@ public abstract class BaseController {
 	@Autowired
 	FacultyService facultyService;
 
-
+	@Autowired
+	StudentService studentService;
 	@ModelAttribute("roles")
 	public List<Role> getAllRoles() {
 		return roleService.findAll();

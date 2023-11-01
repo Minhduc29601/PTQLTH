@@ -44,7 +44,7 @@
     <!-- Page content-->
     <div class="container-fluid">
 
-      <form action="${base }/admin/subject/list" method="get">
+      <form action="${base }/admin/subject/score" method="get">
 
 
 
@@ -53,36 +53,37 @@
           <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Mã môn học</th>
+            <th scope="col">Mã sinh viên</th>
+            <th scope="col">Tên sinh viên</th>
             <th scope="col">Tên môn học</th>
-            <th scope="col">Khoa</th>
-            <c:if test="${userLogined.roles[0].name == 'LECTURER'}">
-              <th scope="col">Hành động</th>
-            </c:if>
+            <th scope="col">Điểm số</th>
+            <th scope="col">Hành động</th>
           </tr>
           </thead>
           <tbody>
-          <c:forEach items="${subjects}" var="subject" varStatus="loop">
+          <c:forEach items="${diems}" var="diem" varStatus="loop">
             <tr>
               <th scope="row" width="5%">
                   ${loop.index + 1}
               </th>
               <td>
-                  ${subject.ma_mon_hoc }
+                  ${diem.sinhVien.masv }
               </td>
               <td>
-                  ${subject.ten_mon_hoc }
+                  ${diem.sinhVien.ho_ten }
               </td>
               <td>
-                  ${subject.khoa.ten_khoa }
+                  ${diem.monHoc.maVaTenMonHoc }
               </td>
-              <c:if test="${userLogined.roles[0].name == 'LECTURER'}">
-                <td width="15%">
-                  <div>
-                    <a class="btn btn-danger" href="${base }/admin/subject/score/${subject.id}" role="button" >Danh sách sinh viên</a>
-                  </div>
-                </td>
-              </c:if>
+              <td>
+                  ${diem.diem_so }
+              </td>
+              <td width="15%">
+                <div>
+                  <a class="btn btn-success" href="${base }/admin/subject/score/update/${diem.id}" role="button" >Chấm điểm</a>
+                </div>
+              </td>
+
             </tr>
           </c:forEach>
           </tbody>

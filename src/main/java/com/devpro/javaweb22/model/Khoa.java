@@ -22,4 +22,7 @@ public class Khoa extends BaseEntity {
 
     @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "khoa")
     private List<User> users = new ArrayList<>();
+
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "khoa")
+    private List<MonHoc> monHocs = new ArrayList<>();
 }

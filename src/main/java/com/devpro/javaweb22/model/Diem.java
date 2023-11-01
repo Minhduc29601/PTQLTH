@@ -24,4 +24,20 @@ public class Diem extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mon_hoc_id")
     private MonHoc monHoc;
+
+    public SinhVien getStudents() {
+        return sinhVien;
+    }
+
+    public MonHoc getSubjects() {
+        return monHoc;
+    }
+
+    public void setStudents(SinhVien sinhVien) {
+        this.sinhVien = sinhVien;
+    }
+
+    public void setSubjects(MonHoc monHoc) {
+        this.monHoc = monHoc;
+    }
 }

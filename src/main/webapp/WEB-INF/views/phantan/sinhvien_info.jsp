@@ -44,7 +44,7 @@
 
             <h1 class="mt-4">Thông tin sinh viên</h1>
             <p>
-                <a href="/admin/subject/register" class="btn btn-secondary active" role="button" aria-pressed="true">Đăng ký môn học</a>
+                <a href="/admin/subject/register" class="btn btn-warning active" role="button" aria-pressed="true">Đăng ký môn học</a>
 
             <%--                <sf:form  action="${base}/admin/student/info" method="get" enctype="multipart/form-data">--%>
 <%--            <div class="form-group mb-2">--%>
@@ -52,23 +52,35 @@
 <%--                <sf:input path="id" id="id" class="form-control" readonly="true"></sf:input>--%>
 <%--            </div>--%>
 
-            <div class="input-form">
-                <label>Tài khoản</label>
-                <input type="text" path="username" id="username" class="form-control" value="${userLogined.username }" placeholder="Username" readonly="true">
-                <label>Họ Tên</label>
-                <input type="text" path="ho_ten" id="ho_ten" class="form-control" value="${userLogined.ho_ten }" placeholder="Username" readonly="true">
-                <label>Năm sinh</label>
-                <input type="text" path="nam_sinh" id="nam_sinh" class="form-control" value="${userLogined.nam_sinh }" placeholder="Username" readonly="true">
-                <label>Quê quán</label>
-                <input type="text" path="que_quan" id="que_quan" class="form-control" value="${userLogined.que_quan }" placeholder="Username" readonly="true">
-                <label>Tên khoa</label>
-                <input type="text" path="khoa" id="khoa" class="form-control" value="${userLogined.khoa.ten_khoa }" placeholder="Username" readonly="true">
-                <label>Khu vực</label>
-                <input type="text" path="khu_vuc" id="khu_vuc" class="form-control" value="${userLogined.khuVuc.ten_khu_vuc }" placeholder="Username" readonly="true">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tài khoản</label>
+                <div class="col-sm-10">
+                    <input type="text" path="username" id="username"  class="form-control-plaintext" value="${userLogined.username }" placeholder="Username" readonly="true">
+                </div>
+                <label class="col-sm-2 col-form-label">Họ Tên</label>
+                <div class="col-sm-10">
+                    <input type="text" path="ho_ten" id="ho_ten"  class="form-control-plaintext" value="${userLogined.ho_ten }" placeholder="Username" readonly="true">
+                </div>
+                <label class="col-sm-2 col-form-label">Năm sinh</label>
+                <div class="col-sm-10">
+                    <input type="text" path="nam_sinh" id="nam_sinh" class="form-control-plaintext" value="${userLogined.nam_sinh }" placeholder="Username" readonly="true">
+                </div>
+                <label class="col-sm-2 col-form-label">Quê quán</label>
+                <div class="col-sm-10">
+                    <input type="text" path="que_quan" id="que_quan" class="form-control-plaintext" value="${userLogined.que_quan }" placeholder="Username" readonly="true">
+                </div>
+                <label class="col-sm-2 col-form-label">Tên khoa</label>
+                <div class="col-sm-10">
+                    <input type="text" path="khoa" id="khoa" class="form-control-plaintext" value="${userLogined.khoa.ten_khoa }" placeholder="Username" readonly="true">
+                </div>
+                <label class="col-sm-2 col-form-label">Khu vực</label>
+                <div class="col-sm-10">
+                    <input type="text" path="khu_vuc" id="khu_vuc" class="form-control-plaintext" value="${userLogined.khuVuc.ten_khu_vuc }" placeholder="Username" readonly="true">
+                </div>
             </div>
-            <p> Bảng điểm </p>
+            <h3> Bảng điểm </h3>
                 <!-- danh sách sản phẩm -->
-                <table class="table table-striped">
+                <table class="table table-striped ">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

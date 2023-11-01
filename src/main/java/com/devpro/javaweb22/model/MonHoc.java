@@ -19,9 +19,19 @@ public class MonHoc extends BaseEntity {
     private String ma_mon_hoc;
     @Column(name = "ten_mon_hoc")
     private String ten_mon_hoc;
-    @Column(name = "khoa_id")
-    private String khoa_id;
+    private String maVaTenMonHoc;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "khoa_id")
+    private Khoa khoa;
 
     @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "monHoc")
     private List<Diem> diems = new ArrayList<>();
+    public String getMaVaTenMonHoc() {
+        return ma_mon_hoc + " - " + ten_mon_hoc;
+    }
+
+    public void setMaVaTenMonHoc(String maVaTenMonHoc) {
+        this.maVaTenMonHoc = maVaTenMonHoc;
+    }
 }

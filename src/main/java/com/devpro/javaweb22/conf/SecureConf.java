@@ -24,7 +24,7 @@ public class SecureConf extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/user/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/admin/lecturer/**").hasAnyAuthority("LECTURER","ADMIN")
                 .antMatchers("/admin/student/**").hasAnyAuthority("STUDENT","LECTURER","ADMIN")
-
+                .antMatchers("/admin/subject/**").hasAnyAuthority("STUDENT","LECTURER","ADMIN")
                 .and()
 
                 //cấu hình trang đăng nhập

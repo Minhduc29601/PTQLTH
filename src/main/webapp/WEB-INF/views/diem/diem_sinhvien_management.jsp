@@ -8,11 +8,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
@@ -31,7 +30,6 @@
 </head>
 <body>
 <div class="d-flex" id="wrapper">
-
   <!-- Sidebar-->
   <jsp:include page="/WEB-INF/views/administrator/layout/header.jsp"></jsp:include>
 
@@ -44,51 +42,22 @@
     <!-- Page content-->
     <div class="container-fluid">
 
-      <form action="${base }/admin/subject/list" method="get">
+      <h1 class="mt-4">Đăng ký môn học</h1>
+      <label>Sinh viên đăng ký</label>
+      <input type="text" path="ho_ten" id="ho_ten" class="form-control" value="${userLogined.ho_ten }" placeholder="Username" readonly="true">
+      <p>
+        <sf:form modelAttribute="diem" action="${base}/admin/subject/register" method="post" enctype="multipart/form-data">
+          <div class="form-group mb-2">
+            <label for="subject">Chọn môn muốn đăng ký</label>
+            <sf:select path="subjects.id" class="form-control" id="subject">
+              <sf:options items="${subjects }" itemValue="id" itemLabel="maVaTenMonHoc" />
+            </sf:select>
+          </div>
+      <a href="/admin/student/info" class="btn btn-secondary active" role="button" aria-pressed="true">Hủy đăng ký</a>
+      <button type="submit" class="btn btn-primary">Lưu</button>
+      </sf:form>
 
-
-
-        <!-- danh sách sản phẩm -->
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Mã môn học</th>
-            <th scope="col">Tên môn học</th>
-            <th scope="col">Khoa</th>
-            <c:if test="${userLogined.roles[0].name == 'LECTURER'}">
-              <th scope="col">Hành động</th>
-            </c:if>
-          </tr>
-          </thead>
-          <tbody>
-          <c:forEach items="${subjects}" var="subject" varStatus="loop">
-            <tr>
-              <th scope="row" width="5%">
-                  ${loop.index + 1}
-              </th>
-              <td>
-                  ${subject.ma_mon_hoc }
-              </td>
-              <td>
-                  ${subject.ten_mon_hoc }
-              </td>
-              <td>
-                  ${subject.khoa.ten_khoa }
-              </td>
-              <c:if test="${userLogined.roles[0].name == 'LECTURER'}">
-                <td width="15%">
-                  <div>
-                    <a class="btn btn-danger" href="${base }/admin/subject/score/${subject.id}" role="button" >Danh sách sinh viên</a>
-                  </div>
-                </td>
-              </c:if>
-            </tr>
-          </c:forEach>
-          </tbody>
-        </table>
-
-      </form>
+      </p>
 
     </div>
   </div>
@@ -96,6 +65,7 @@
 
 <!-- JS -->
 <jsp:include page="/WEB-INF/views/administrator/layout/js.jsp"></jsp:include>
+
 
 </body>
 </html>
