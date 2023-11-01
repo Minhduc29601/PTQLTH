@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,4 +19,9 @@ public class SinhVien extends User{
 
     @Column(name = "masv")
     private String masv;
+
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "sinhVien")
+    private List<Diem> diems = new ArrayList<>();
+
+
 }

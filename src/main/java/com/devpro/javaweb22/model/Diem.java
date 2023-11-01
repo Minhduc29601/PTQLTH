@@ -9,14 +9,19 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "diem")
-public class Diem {
+public class Diem extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "id_sv")
-    private Integer id_sv;
-    @Column(name = "id_mh")
-    private Integer id_mh;
+
     @Column(name = "diem_so")
-    private Integer diem_so;
+    private Float diem_so;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sinh_vien_id")
+    private SinhVien sinhVien;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mon_hoc_id")
+    private MonHoc monHoc;
 }
