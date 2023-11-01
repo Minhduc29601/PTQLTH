@@ -1,11 +1,9 @@
 package com.devpro.javaweb22.controller.admin;
 
 import com.devpro.javaweb22.controller.BaseController;
-import com.devpro.javaweb22.model.GiangVien;
-import com.devpro.javaweb22.model.Role;
-import com.devpro.javaweb22.model.SinhVien;
-import com.devpro.javaweb22.model.User;
+import com.devpro.javaweb22.model.*;
 import com.devpro.javaweb22.services.RoleService;
+import com.devpro.javaweb22.services.ScoreService;
 import com.devpro.javaweb22.services.StudentService;
 import com.devpro.javaweb22.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +26,8 @@ public class StudentController extends BaseController {
     UserService userService;
     @Autowired
     StudentService studentService;
+    @Autowired
+    ScoreService scoreService;
     @Autowired
     RoleService roleService;
     @RequestMapping(value = { "/admin/student/list" }, method = RequestMethod.GET)
@@ -134,4 +134,33 @@ public class StudentController extends BaseController {
         // trở về trang danh sách sản phẩm
         return "redirect:/admin/student/list";
     }
+
+
+    @RequestMapping(value = { "/admin/student/info" }, method = RequestMethod.GET)
+    public String adminStudentDetailInfo(final Model model,
+                                     final HttpServletRequest request,
+                                     final HttpServletResponse response
+                                     ) throws IOException {
+        User user = getUserLogined();
+        List<Diem> diem = scoreService.getEntitiesByNativeSQL("select * from diem where sinh_vien_id = " + user.getId());
+
+        model.addAttribute("scores", diem);
+
+        return "phantan/sinhvien_info";
+
+    }
+
+//    @RequestMapping(value = { "/admin/student/info" }, method = RequestMethod.POST)
+//    public String adminStudentDetailInfoPost(final Model model,
+//                                         final HttpServletRequest request,
+//                                         final HttpServletResponse response
+//    ) throws IOException {
+//
+//        // lấy product trong db theo ProductId
+////        User user = getUserLogined();
+////        model.addAttribute("student", user);
+//
+//        return "phantan/sinhvien_info";
+//
+//    }
 }

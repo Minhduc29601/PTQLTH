@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,4 +21,7 @@ public class MonHoc extends BaseEntity {
     private String ten_mon_hoc;
     @Column(name = "khoa_id")
     private String khoa_id;
+
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "monHoc")
+    private List<Diem> diems = new ArrayList<>();
 }
