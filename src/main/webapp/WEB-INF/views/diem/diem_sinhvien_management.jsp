@@ -43,6 +43,11 @@
     <div class="container-fluid">
 
       <h1 class="mt-4">Đăng ký môn học</h1>
+      <c:if test="${error}">
+        <div class="alert alert-danger" role="alert">
+          Sinh viên đã đăng ký môn học này
+        </div>
+      </c:if>
       <label>Sinh viên đăng ký</label>
       <input type="text" path="ho_ten" id="ho_ten" class="form-control" value="${userLogined.ho_ten }" placeholder="Username" readonly="true">
       <p>

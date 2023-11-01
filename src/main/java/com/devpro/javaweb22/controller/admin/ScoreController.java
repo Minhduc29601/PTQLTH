@@ -70,6 +70,11 @@ public class ScoreController extends BaseController {
                                           final HttpServletResponse response,
                                           @ModelAttribute("diem") Diem diem) throws Exception {
 
+        Diem existDiem = scoreService.getEntityByNativeSQL("select * from diem where mon_hoc_id = " + diem.getMonHoc().getId() + " and sinh_vien_id = " + getUserLogined().getId());
+        if (existDiem != null) {
+            model.addAttribute("error", true); // đẩy data xuống view
+            return "diem/diem_sinhvien_management";
+        }
         SinhVien currentStudent = studentService.getEntityByNativeSQL("select * from tbl_users where id = " + getUserLogined().getId());
         diem.setSinhVien(currentStudent);
         diem.setDiem_so(null);
