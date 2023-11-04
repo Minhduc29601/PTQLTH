@@ -47,8 +47,8 @@
         <sf:form modelAttribute="lecturer" action="${base}/admin/lecturer/management" method="post" enctype="multipart/form-data">
           <c:if test="${error}">
             <div class="alert alert-danger" role="alert">
-              Username hoặc mã giảng viên đã tồn tại hoặc username không được phép là "admin"
-          </div>
+              Username hoặc mã giảng viên đã tồn tại hoặc username không được phép là "admin" hoặc mã giảng viên không đúng định dạng
+            </div>
           </c:if>
           <c:if test="${lecturer.id != null}">
             <div class="form-group mb-2">

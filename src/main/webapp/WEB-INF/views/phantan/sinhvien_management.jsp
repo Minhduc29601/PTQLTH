@@ -47,7 +47,7 @@
         <sf:form modelAttribute="student" action="${base}/admin/student/management" method="post" enctype="multipart/form-data">
           <c:if test="${error}">
             <div class="alert alert-danger" role="alert">
-              Username hoặc mã sinh viên đã tồn tại hoặc username không được phép là "admin"
+              Username hoặc mã sinh viên đã tồn tại hoặc username không được phép là "admin" hoặc mã sinh viên không đúng định dạng
             </div>
           </c:if>
       <div class="input-form">

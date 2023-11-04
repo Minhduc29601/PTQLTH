@@ -43,6 +43,11 @@
         <div class="container-fluid">
 
             <h1 class="mt-4">Sửa sinh viên</h1>
+            <c:if test="${error}">
+                <div class="alert alert-danger" role="alert">
+                    Mã sinh viên không đúng định dạng
+                </div>
+            </c:if>
             <p>
                 <sf:form modelAttribute="student" action="${base}/admin/student/update" method="post" enctype="multipart/form-data">
             <div class="form-group mb-2">
@@ -65,11 +70,8 @@
             <div class="input-form">
                 <sf:input type="text" path="que_quan" id="que_quan" class="form-control" placeholder="Quê quán"></sf:input>
             </div>
-            <div class="form-group mb-2">
-                <label for="khuvuc">Khu vực</label>
-                <sf:select path="locations.id" class="form-control" id="khuvuc">
-                    <sf:options items="${locations }" itemValue="id" itemLabel="ten_khu_vuc" />
-                </sf:select>
+            <div class="input-form">
+                <sf:input type="text" path="khuVuc.ten_khu_vuc" id="khu_vuc" class="form-control" readonly="true"></sf:input>
             </div>
             <div class="form-group mb-2">
                 <label for="khoa">Khoa</label>

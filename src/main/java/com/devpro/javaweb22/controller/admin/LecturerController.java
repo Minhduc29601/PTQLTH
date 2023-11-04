@@ -9,6 +9,8 @@ import com.devpro.javaweb22.services.LecturerService;
 import com.devpro.javaweb22.services.RoleService;
 import com.devpro.javaweb22.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -82,7 +84,12 @@ public class LecturerController extends BaseController {
         Role role = roleService.getById(3);
         lecturer.addRoles(role);
         lecturer.setPassword(new BCryptPasswordEncoder(4).encode(lecturer.getPassword()));
-        lecturerService.saveOrUpdate(lecturer);
+        try {
+            lecturerService.saveOrUpdate(lecturer);
+        } catch (Exception ex) {
+            model.addAttribute("error", true);
+            return "phantan/giangvien_management";
+        }
 
         // trở về trang danh sách sản phẩm
         return "redirect:/admin/lecturer/list";
@@ -114,10 +121,9 @@ public class LecturerController extends BaseController {
         existLecturer.setHo_ten(lecturer.getHo_ten());
         existLecturer.setQue_quan(lecturer.getQue_quan());
         existLecturer.setNam_sinh(lecturer.getNam_sinh());
-        existLecturer.setLocations(lecturer.getLocations());
         existLecturer.setFaculties((lecturer.getFaculties()));
-
         lecturerService.saveOrUpdate(existLecturer);
+
         // trở về trang danh sách sản phẩm
         return "redirect:/admin/lecturer/list";
     }
