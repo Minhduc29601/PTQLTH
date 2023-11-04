@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div class="border-end bg-white" id="sidebar-wrapper">
-	<div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+	<div class="sidebar-heading border-bottom bg-light" style="color: #e83e8c "><b>Jingliu Academy</b></div>
 	<div class="list-group list-group-flush">
 		<c:if test="${userLogined.roles[0].name == 'STUDENT'}">
 			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="${base }/admin/student/info">Thông tin cá nhân</a>

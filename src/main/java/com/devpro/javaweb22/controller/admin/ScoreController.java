@@ -181,7 +181,13 @@ public class ScoreController extends BaseController {
         diemNew.setSinhVien(diemNew.getSinhVien());
         diemNew.setMonHoc(diemNew.getMonHoc());
         diemNew.setDiem_so(diem.getDiem_so());
-        scoreService.saveOrUpdate(diemNew);
+        try{
+            scoreService.saveOrUpdate(diemNew);
+        } catch (Exception e){
+            model.addAttribute("error", true);
+            return "diem/chamdiem_management";
+        }
+
         // trở về trang danh sách sản phẩm
         return "redirect:/admin/subject/list";
     }

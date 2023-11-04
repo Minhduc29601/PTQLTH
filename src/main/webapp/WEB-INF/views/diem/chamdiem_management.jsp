@@ -43,6 +43,11 @@
         <div class="container-fluid">
 
             <h1 class="mt-4">Nhập điểm</h1>
+            <c:if test="${error}">
+                <div class="alert alert-danger" role="alert">
+                    Điểm không hợp lệ!
+                </div>
+            </c:if>
             <p>
                 <sf:form modelAttribute="diem" action="${base }/admin/subject/score/update" method="post" enctype="multipart/form-data">
                     <div class="form-group mb-2">
