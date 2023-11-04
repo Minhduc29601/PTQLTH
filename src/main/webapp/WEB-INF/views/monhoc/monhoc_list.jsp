@@ -78,11 +78,19 @@
               </td>
               <c:if test="${userLogined.roles[0].name == 'LECTURER'}">
                 <td width="15%">
-                  <div>
-                    <a class="btn btn-danger" href="${base }/admin/subject/score/${subject.id}" role="button" >Danh sách sinh viên</a>
-                  </div>
+                  <c:if test="${userLogined.khoa.id == subject.khoa.id}">
+                    <div>
+                      <a class="btn btn-danger" href="${base }/admin/subject/score/${subject.id}" role="button" >Danh sách sinh viên</a>
+                    </div>
+                  </c:if>
+                  <c:if test="${userLogined.khoa.id != subject.khoa.id}">
+                    <div>
+                      <a class="btn btn-secondary" href="#?" role="button" disabled="true" >Danh sách sinh viên</a>
+                    </div>
+                  </c:if>
                 </td>
               </c:if>
+
             </tr>
           </c:forEach>
           </tbody>
