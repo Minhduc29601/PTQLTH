@@ -93,12 +93,14 @@
                             <td>
                                     ${lecturer.khuVuc.ten_khu_vuc }
                             </td>
-                            <td width="15%">
-                                <div>
-                                    <a class="btn btn-primary" href="${base }/admin/lecturer/management/${lecturer.id}" role="button">Sửa</a>
-                                    <a class="btn btn-danger" href="${base }/admin/lecturer/delete/${lecturer.id}" role="button" >Xóa</a>
-                                </div>
-                            </td>
+                            <c:if test="${lecturer.roles[0].name != 'ADMIN'}">
+                                <td width="15%">
+                                    <div>
+                                        <a class="btn btn-primary" href="${base }/admin/lecturer/management/${lecturer.id}" role="button">Sửa</a>
+                                        <a class="btn btn-danger" href="${base }/admin/lecturer/delete/${lecturer.id}" role="button" >Xóa</a>
+                                    </div>
+                                </td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                     </tbody>

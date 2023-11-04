@@ -75,6 +75,7 @@ public class LecturerController extends BaseController {
         GiangVien existCodeLecturer = lecturerService.getEntityByNativeSQL("select * from tbl_users where magv = '" + lecturer.getMagv() + "'");
         GiangVien existUsernameLecturer = lecturerService.getEntityByNativeSQL("select * from tbl_users where username = '" + lecturer.getUsername() + "'");
         if (existCodeLecturer != null || existUsernameLecturer != null || lecturer.getUsername().trim().equalsIgnoreCase("admin")) {
+            lecturer.setPassword(null);
             model.addAttribute("lecturer", lecturer); // đẩy data xuống view
             model.addAttribute("error", true); // đẩy data xuống view
             // trả về view
@@ -88,6 +89,7 @@ public class LecturerController extends BaseController {
             lecturerService.saveOrUpdate(lecturer);
         } catch (Exception ex) {
             model.addAttribute("error", true);
+            lecturer.setPassword(null);
             return "phantan/giangvien_management";
         }
 

@@ -61,6 +61,7 @@ public class StudentController extends BaseController {
         SinhVien existCodeStudent = studentService.getEntityByNativeSQL("select * from tbl_users where masv = '" + student.getMasv() + "'");
         SinhVien existUsernameStudent = studentService.getEntityByNativeSQL("select * from tbl_users where username = '" + student.getUsername() + "'");
         if (existCodeStudent != null || existUsernameStudent != null || student.getUsername().trim().equalsIgnoreCase("admin")) {
+            student.setPassword(null);
             model.addAttribute("student", student); // đẩy data xuống view
             model.addAttribute("error", true); // đẩy data xuống view
             // trả về view
@@ -74,6 +75,7 @@ public class StudentController extends BaseController {
         try {
             studentService.saveOrUpdate(student);
         } catch (Exception ex) {
+            student.setPassword(null);
             model.addAttribute("error", true);
             return "phantan/sinhvien_management";
         }
